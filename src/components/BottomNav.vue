@@ -7,17 +7,19 @@ const navigateTo = (path) => router.push({ path: path })
 </script>
 
 <template>
-  <v-bottom-navigation>
-    <v-btn @click="navigateTo('/')" value="inicio">
-      <v-icon>mdi-home</v-icon>
+  <v-bottom-navigation grow="true">
+    <v-btn @click="navigateTo('/')" value="inicio" class="mr-8 rounded p-4">
+      <v-icon>mdi-home-outline</v-icon>
 
       <span>Inicio</span>
     </v-btn>
 
-    <v-btn @click="navigateTo('/favoritos')" value="favoritos">
-      <v-icon>mdi-heart</v-icon>
+    <v-btn @click="navigateTo('/favoritos')" value="favoritos" class="rounded p-4">
+      <v-icon>mdi-heart-outline</v-icon>
 
       <span>Favoritos</span>
     </v-btn>
   </v-bottom-navigation>
 </template>
+
+<style scoped></style>
