@@ -1,5 +1,11 @@
 <script setup>
+import { inject } from 'vue';
+import { useRoute } from 'vue-router'
 
+const gemini = inject('gemini');
+gemini.getPontosTuristicos(useRoute().params.cidade).then((response) => {
+  console.log(response);
+});
 </script>
 
 <template>
