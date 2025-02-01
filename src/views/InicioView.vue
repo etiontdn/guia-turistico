@@ -1,7 +1,16 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-let cidades = ref(["Juiz de Fora", "Rio de Janeiro", "São Paulo", "Belo Horizonte"])
+let cidades = ref([
+  "Paris", "Roma", "Londres", "Nova York", "Tóquio", "Dubai", "Barcelona", "Bangkok",
+  "Rio de Janeiro", "Sidney", "Istambul", "Hong Kong", "Los Angeles", "Berlim", "Amsterdã",
+  "Veneza", "Buenos Aires", "Las Vegas", "Santorini", "Edimburgo", "Cidade do México",
+  "Seul", "Moscou", "Xangai", "Florença", "Praga", "Toronto", "Cingapura", "Viena",
+  "Atenas", "Madri", "Dublin", "São Francisco", "Marrakech", "Munique", "Cairo",
+  "Havana", "Capetown", "Bali", "Hongdae", "Cartagena", "Quioto", "Osaka", "Manila",
+  "Kuala Lumpur", "Doha", "Salvador", "Cusco", "Bogotá", "Varsóvia", "Amã"
+]
+)
 
 let router = useRouter()
 

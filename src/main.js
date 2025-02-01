@@ -8,6 +8,7 @@ import '@mdi/font/css/materialdesignicons.css'
 
 // Api
 import gemini from './plugins/gemini'
+import unsplashPlugin from './plugins/unsplash'
 
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -28,6 +29,9 @@ const vuetify = createVuetify({
 const app = createApp(App)
 
 app.use(router)
+app.use(unsplashPlugin, {
+  apiKey: import.meta.env.VITE_UNSPLASH_API_KEY,
+})
 app.use(gemini, {
   apiKey: import.meta.env.VITE_GEMINI_API_KEY,
 })
