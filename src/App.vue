@@ -1,10 +1,10 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import BottomNav from './components/BottomNav.vue'
 </script>
 
 <template>
-  <v-app>
+  <v-app class="v-app">
     <RouterView />
     <BottomNav></BottomNav>
   </v-app>
