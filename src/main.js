@@ -9,6 +9,7 @@ import '@mdi/font/css/materialdesignicons.css'
 // Api
 import gemini from './plugins/gemini'
 import unsplashPlugin from './plugins/unsplash'
+import exchangeRate from './plugins/exchange_rate'
 
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -34,6 +35,9 @@ app.use(unsplashPlugin, {
 })
 app.use(gemini, {
   apiKey: import.meta.env.VITE_GEMINI_API_KEY,
+})
+app.use(exchangeRate, {
+  apiKey: import.meta.env.VITE_EXCHANGE_RATE_API_KEY,
 })
 app.use(vuetify)
 

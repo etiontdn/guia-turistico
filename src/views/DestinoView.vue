@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 
 const gemini = inject('gemini');
 const unsplash = inject('unsplash');
+const exchange_rate = inject('exchange_rate');
 
 const image = ref({});
 
@@ -19,6 +20,15 @@ gemini.getPontosTuristicos(useRoute().params.cidade).then((response) => {
   console.log(response)
   turismo.value = response;
 });
+
+const moedaInicial = "BRL";
+const moedaFinal = exchange_rate.moedas[useRoute().params.cidade];
+
+const taxa_de_cambio = ref(0);
+
+exchange_rate.par(moedaInicial, moedaFinal).then((response) => {
+  taxa_de_cambio.value = response;
+});
 </script>
 
 <template>
@@ -33,7 +43,9 @@ gemini.getPontosTuristicos(useRoute().params.cidade).then((response) => {
           :href="'https://www.google.com/maps/search/' + item.nome + ' ' + $route.params.cidade">Ir</a>
       </p>
     </div> -->
-
+    <div v-if="taxa_de_cambio > 0">
+      <h3>Taxa de câmbio ({{ moedaInicial }} para {{ moedaFinal }}): {{ taxa_de_cambio }}</h3>
+    </div>
   </div>
 </template>
 
