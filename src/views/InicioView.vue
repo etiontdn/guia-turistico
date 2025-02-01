@@ -5,9 +5,9 @@ let cidades = ref(["Juiz de Fora", "Rio de Janeiro", "São Paulo", "Belo Horizon
 
 let router = useRouter()
 
-let cidade = "";
+let cidade = ref("");
 function transformaCidade(cidade) {
-  return cidade.toLowerCase().replace(/ /g, "-")
+  return cidade.value.toLowerCase().replace(/ /g, "-")
 }
 const navigateTo = () => router.push({ path: "/destino/" + transformaCidade(cidade) })
 
@@ -19,7 +19,8 @@ const navigateTo = () => router.push({ path: "/destino/" + transformaCidade(cida
       <v-sheet max-width="500" max-height="300px" rounded elevation="10" class="mx-auto p-4 mb-16" width="100%">
         <v-col align="center" justify="center">
           <v-autocomplete v-model="cidade" label="Insira uma cidade" :items="cidades"></v-autocomplete>
-          <v-btn append-icon="mdi-chevron-right-circle-outline" @click="navigateTo()">Ver Destino
+          <v-btn append-icon="mdi-chevron-right-circle-outline" :disabled="cidade == ''"
+            @click="cidade != '' ? navigateTo() : ''">Ver Destino
             <template v-slot:append>
               <v-icon color="primary"></v-icon>
             </template>
