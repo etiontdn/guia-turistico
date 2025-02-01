@@ -19,11 +19,5 @@ const navigateTo = (path) => router.push({ path: path })
 
       <span>Favoritos</span>
     </v-btn>
-
-    <v-btn @click="navigateTo('/por-perto')" value="por-perto">
-      <v-icon>mdi-map-marker</v-icon>
-
-      <span>Por Perto</span>
-    </v-btn>
   </v-bottom-navigation>
 </template>

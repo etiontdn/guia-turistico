@@ -58,6 +58,7 @@ clima.getTempo(coordenadas.value.latitude, coordenadas.value.longitude).then((re
       <h3>Clima atual: {{ tempo.weather[0].description }}</h3>
       <p>Temperatura: {{ tempo.main.temp }}°C</p>
       <p>Umidade: {{ tempo.main.humidity }}%</p>
+      <img :src="`https://openweathermap.org/img/wn/${tempo.weather[0].icon}@4x.png`" alt="">
     </div>
   </div>
 </template>
