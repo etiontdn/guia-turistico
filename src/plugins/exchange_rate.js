@@ -3,7 +3,7 @@ import axios from 'axios'
 const exchangeRate = {
   install(Vue, options) {
     if (!options || !options.apiKey) {
-      throw new Error('Você precisa fornecer uma chave de API para o plugin Unsplash.')
+      throw new Error('Você precisa fornecer uma chave de API para o plugin Exchange Rate.')
     }
     const api_key = options.apiKey
     Vue.provide('exchange_rate', {
