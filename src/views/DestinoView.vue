@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router'
 const gemini = inject('gemini');
 const unsplash = inject('unsplash');
 const exchange_rate = inject('exchange_rate');
+const clima = inject('clima');
 
 const image = ref({});
 
@@ -29,6 +30,13 @@ const taxa_de_cambio = ref(0);
 exchange_rate.par(moedaInicial, moedaFinal).then((response) => {
   taxa_de_cambio.value = response;
 });
+
+const coordenadas = ref(clima.coordenadas[useRoute().params.cidade]);
+const tempo = ref({});
+
+clima.getTempo(coordenadas.value.latitude, coordenadas.value.longitude).then((response) => {
+  tempo.value = response;
+});
 </script>
 
 <template>
@@ -45,6 +53,11 @@ exchange_rate.par(moedaInicial, moedaFinal).then((response) => {
     </div> -->
     <div v-if="taxa_de_cambio > 0">
       <h3>Taxa de câmbio ({{ moedaInicial }} para {{ moedaFinal }}): {{ taxa_de_cambio }}</h3>
+    </div>
+    <div v-if="tempo.main">
+      <h3>Clima atual: {{ tempo.weather[0].description }}</h3>
+      <p>Temperatura: {{ tempo.main.temp }}°C</p>
+      <p>Umidade: {{ tempo.main.humidity }}%</p>
     </div>
   </div>
 </template>
