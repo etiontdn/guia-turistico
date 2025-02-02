@@ -1,14 +1,13 @@
 <script setup>
-import { inject, ref } from 'vue';
-import { useRoute } from 'vue-router';
-const gemini = inject('gemini');
+import { inject, ref } from 'vue'
+import { useRoute } from 'vue-router'
+const gemini = inject('gemini')
 
-const turismo = ref([]);
+const turismo = ref([])
 
 gemini.getPontosTuristicos(useRoute().params.cidade).then((response) => {
-  turismo.value = response;
-});
-
+  turismo.value = response
+})
 </script>
 
 <template>
@@ -20,16 +19,23 @@ gemini.getPontosTuristicos(useRoute().params.cidade).then((response) => {
             <v-icon class="mr-2 text-grey-darken-2">mdi-bank-outline</v-icon>
             <h2 class="text-h6 text-grey-darken-3 mt-1 font-weight-regular">Pontos Turísticos</h2>
           </v-row>
-          <p class="mb-4 mt-2 text-caption text-grey-dark-1 font-weight-light font-italic">Gerado com o Gemini AI do
-            Google
+          <p class="mb-4 mt-2 text-caption text-grey-dark-1 font-weight-light font-italic">
+            Gerado com o Gemini AI do Google
           </p>
           <v-row class="ma-0 pa-0">
             <div class="card mt-2 pr-4" v-for="item in turismo" :key="item.id">
               <h3 class="text-h6 text-grey-darken-3 font-weight-regular">{{ item.nome }}</h3>
-              <p class="text-subtitle-2 text-grey-darken-1 font-weight-light">{{ item.pequena_descricao }}</p>
-              <p class="text-caption text-grey-darken-1 font-weight-light">{{ item.local }} <a
-                  :href="'https://www.google.com/maps/search/' + item.nome + ' ' + $route.params.cidade"><v-icon
-                    size="sm">mdi-chevron-right-circle-outline</v-icon></a>
+              <p class="text-subtitle-2 text-grey-darken-1 font-weight-light">
+                {{ item.pequena_descricao }}
+              </p>
+              <p class="text-caption text-grey-darken-1 font-weight-light">
+                {{ item.local }}
+                <a
+                  :href="
+                    'https://www.google.com/maps/search/' + item.nome + ' ' + $route.params.cidade
+                  "
+                  ><v-icon size="sm">mdi-chevron-right-circle-outline</v-icon></a
+                >
               </p>
             </div>
           </v-row>

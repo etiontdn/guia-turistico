@@ -1,15 +1,15 @@
 <script setup>
-import { inject, ref } from 'vue';
-import { useRoute } from 'vue-router';
-const exchange_rate = inject('exchange_rate');
-const taxa_de_cambio = ref(0);
+import { inject, ref } from 'vue'
+import { useRoute } from 'vue-router'
+const exchange_rate = inject('exchange_rate')
+const taxa_de_cambio = ref(0)
 
-const moedaInicial = "BRL";
-const moedaFinal = exchange_rate.moedas[useRoute().params.cidade];
+const moedaInicial = 'BRL'
+const moedaFinal = exchange_rate.moedas[useRoute().params.cidade]
 
 exchange_rate.par(moedaInicial, moedaFinal).then((response) => {
-  taxa_de_cambio.value = response;
-});
+  taxa_de_cambio.value = response
+})
 </script>
 
 <template>
@@ -22,12 +22,11 @@ exchange_rate.par(moedaInicial, moedaFinal).then((response) => {
             <h2 class="text-h6 text-grey-darken-3 mt-1 font-weight-regular">Câmbio</h2>
           </v-row>
           <div v-if="taxa_de_cambio > 0">
-            <h3 class="text-h4 text-grey-darken-3 font-weight-regular">{{ taxa_de_cambio.toFixed(2) }} {{
-              moedaFinal }}
+            <h3 class="text-h4 text-grey-darken-3 font-weight-regular">
+              {{ taxa_de_cambio.toFixed(2) }} {{ moedaFinal }}
             </h3>
-            <h5 class="text-subtitle-1 text-grey-darken-1 font-weight-light">1 {{ moedaFinal }} = {{ (1 /
-              taxa_de_cambio).toFixed(2)
-              }} {{ moedaInicial }}
+            <h5 class="text-subtitle-1 text-grey-darken-1 font-weight-light">
+              1 {{ moedaFinal }} = {{ (1 / taxa_de_cambio).toFixed(2) }} {{ moedaInicial }}
             </h5>
           </div>
         </v-col>

@@ -1,11 +1,8 @@
 <script setup>
 import CambioSheet from '../components/CambioSheet.vue'
 import ClimaTempoSheet from '../components/ClimaTempoSheet.vue'
-import TurismoSheet from '../components/TurismoSheet.vue';
-import ImageSheet from '../components/ImageSheet.vue';
-
-
-
+import TurismoSheet from '../components/TurismoSheet.vue'
+import ImageSheet from '../components/ImageSheet.vue'
 </script>
 
 <template>
@@ -43,9 +40,8 @@ import ImageSheet from '../components/ImageSheet.vue';
   gap: 16px;
 }
 
-
 .image {
-  height: 100%
+  height: 100%;
 }
 
 .center-limited {
