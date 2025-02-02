@@ -40,7 +40,6 @@ function getIcon() {
 
 clima.getTempo(coordenadas.value.latitude, coordenadas.value.longitude).then((response) => {
   tempo.value = response;
-  console.log(tempo.value);
   date.value.setTime(date.value.getTime() + tempo.value.timezone * 1000);
   horas.value = date.value.toTimeString().slice(0, 5);
   getIcon();

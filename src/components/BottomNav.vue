@@ -10,7 +10,6 @@ const navigateTo = (path) => router.push({ path: path })
   <v-bottom-navigation class="bottomnav" rounded="t-lg">
     <v-btn @click="navigateTo('/')" value="inicio" class="rounded p-4">
       <v-icon color="grey-darken-3">mdi-home-outline</v-icon>
-
       <span class="text-grey-darken-3">Inicio</span>
     </v-btn>
   </v-bottom-navigation>

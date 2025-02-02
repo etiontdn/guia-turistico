@@ -6,7 +6,6 @@ const gemini = inject('gemini');
 const turismo = ref([]);
 
 gemini.getPontosTuristicos(useRoute().params.cidade).then((response) => {
-  console.log(response)
   turismo.value = response;
 });
 
