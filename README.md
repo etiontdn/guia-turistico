@@ -1,35 +1,51 @@
-# guia-turistico
+# Guia Turístico
 
-This template should help get you started developing with Vue 3 in Vite.
+Este projeto é um guia turístico que fornece informações sobre pontos turísticos, clima, taxa de câmbio e imagens de várias cidades ao redor do mundo.
 
-## Recommended IDE Setup
+## Instalação
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+1. Clone o repositório:
 
-## Customize configuration
+   ```sh
+   git clone https://github.com/seu-usuario/guia-turistico.git
+   cd guia-turistico
+   ```
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+2. Instale as dependências:
 
-## Project Setup
+   ```sh
+   npm install
+   ```
 
-```sh
-npm install
-```
+3. Crie um arquivo `.env` na raiz do projeto e adicione suas chaves de API:
+   ```properties
+   VITE_GEMINI_API_KEY="sua-chave-gemini"
+   VITE_UNSPLASH_API_KEY="sua-chave-unsplash"
+   VITE_EXCHANGE_RATE_API_KEY="sua-chave-exchange-rate"
+   VITE_CLIMA_API_KEY="sua-chave-clima"
+   ```
 
-### Compile and Hot-Reload for Development
+## Uso
 
-```sh
-npm run dev
-```
+1. Inicie o servidor de desenvolvimento:
 
-### Compile and Minify for Production
+   ```sh
+   npm run dev
+   ```
 
-```sh
-npm run build
-```
+2. Abra o navegador e acesse `http://localhost:5137`.
 
-### Lint with [ESLint](https://eslint.org/)
+## Estrutura do Projeto
 
-```sh
-npm run lint
-```
+- `src/main.js`: Arquivo principal onde os plugins e o Vuetify são configurados.
+- `src/plugins/`: Diretório contendo os plugins para integração com APIs externas.
+- `src/views/DestinoView.vue`: Componente de visualização dos detalhes de um destino específico.
+- `src/views/InicioView.vue`: Componente de visualização da página principal.
+- `src/components/`: Diretório contendo componentes reutilizáveis, como `ClimaTempoSheet.vue` e `CambioSheet.vue`.
+
+## Funcionalidades
+
+- **Pontos Turísticos**: Exibe informações sobre pontos turísticos de uma cidade.
+- **Clima**: Mostra o clima atual da cidade.
+- **Taxa de Câmbio**: Exibe a taxa de câmbio entre a moeda local e a moeda do destino.
+- **Imagens**: Mostra imagens da cidade obtidas da API Unsplash.
