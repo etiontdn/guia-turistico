@@ -19,4 +19,8 @@ import BottomNav from './components/BottomNav.vue'
   margin: 0;
   font-weight: normal;
 }
+
+.v-app {
+  padding-bottom: 64px;
+}
 </style>

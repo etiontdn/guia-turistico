@@ -13,7 +13,7 @@ exchange_rate.par(moedaInicial, moedaFinal).then((response) => {
 </script>
 
 <template>
-  <v-sheet max-width="90vw" border rounded="lg">
+  <v-sheet v-if="taxa_de_cambio != 0" max-width="90vw" border rounded="lg">
     <v-container min-width="300" class="pa-6 pt-8 pb-8" fluid>
       <v-row>
         <v-col align="start">

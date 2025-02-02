@@ -51,7 +51,7 @@ clima.getTempo(coordenadas.value.latitude, coordenadas.value.longitude).then((re
 </script>
 
 <template>
-  <v-sheet max-width="90vw" class="fundo-gradiente" rounded="lg">
+  <v-sheet v-if="tempo" max-width="90vw" class="fundo-gradiente" rounded="lg">
     <v-container min-width="320" class="pa-6 pt-8 pb-8" fluid>
       <v-row v-if="tempo" align="center">
         <v-col align="start">
