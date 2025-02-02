@@ -1,11 +1,14 @@
 <script setup>
 import { inject, ref } from 'vue';
 import { useRoute } from 'vue-router'
+import CambioSheet from '../components/CambioSheet.vue'
+import ClimaTempoSheet from '../components/ClimaTempoSheet.vue'
+import TurismoSheet from '../components/TurismoSheet.vue';
 
 const gemini = inject('gemini');
 const unsplash = inject('unsplash');
-const exchange_rate = inject('exchange_rate');
 const clima = inject('clima');
+
 
 const image = ref({});
 
@@ -20,15 +23,6 @@ const turismo = ref([]);
 gemini.getPontosTuristicos(useRoute().params.cidade).then((response) => {
   console.log(response)
   turismo.value = response;
-});
-
-const moedaInicial = "BRL";
-const moedaFinal = exchange_rate.moedas[useRoute().params.cidade];
-
-const taxa_de_cambio = ref(0);
-
-exchange_rate.par(moedaInicial, moedaFinal).then((response) => {
-  taxa_de_cambio.value = response;
 });
 
 const coordenadas = ref(clima.coordenadas[useRoute().params.cidade]);
@@ -51,15 +45,9 @@ clima.getTempo(coordenadas.value.latitude, coordenadas.value.longitude).then((re
           :href="'https://www.google.com/maps/search/' + item.nome + ' ' + $route.params.cidade">Ir</a>
       </p>
     </div> -->
-    <div v-if="taxa_de_cambio > 0">
-      <h3>Taxa de câmbio ({{ moedaInicial }} para {{ moedaFinal }}): {{ taxa_de_cambio }}</h3>
-    </div>
-    <div v-if="tempo.main">
-      <h3>Clima atual: {{ tempo.weather[0].description }}</h3>
-      <p>Temperatura: {{ tempo.main.temp }}°C</p>
-      <p>Umidade: {{ tempo.main.humidity }}%</p>
-      <img :src="`https://openweathermap.org/img/wn/${tempo.weather[0].icon}@4x.png`" alt="">
-    </div>
+    <ClimaTempoSheet></ClimaTempoSheet>
+    <CambioSheet></CambioSheet>
+    <TurismoSheet></TurismoSheet>
   </div>
 </template>
 

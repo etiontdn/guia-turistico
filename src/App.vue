@@ -11,3 +11,12 @@ import BottomNav from './components/BottomNav.vue'
 </template>
 
 <style scoped></style>
+<style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+</style>
