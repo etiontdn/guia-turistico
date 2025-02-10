@@ -1,6 +1,7 @@
 # Guia Turístico
 
 Este projeto é um guia turístico que fornece informações sobre pontos turísticos, clima, taxa de câmbio e imagens de várias cidades ao redor do mundo.
+Veja no [Netlify!](https://guia-turistico-app.netlify.app/ )
 
 ## Instalação
 
